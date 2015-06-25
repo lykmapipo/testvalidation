@@ -2,11 +2,24 @@
 
 //dependencies
 var expect = require('chai').expect;
-// var faker = require('faker');
+var faker = require('faker');
+var noteId;
 
 describe('Note', function() {
 
-    it('should throw custom errors messages if not valid', function(done) {
+    //prepare note
+    before(function(done) {
+        Note.create({
+            title: faker.lorem.sentence(),
+            author: faker.name.findName(),
+            note: faker.lorem.sentence()
+        }, function(error, note) {
+            noteId = note.id;
+            done(error, note);
+        });
+    });
+
+    it('should throw custom errors messages when creating an invalid note', function(done) {
 
         Note
             .create({}, function(error /*, note*/ ) {
@@ -45,6 +58,16 @@ describe('Note', function() {
 
                 done();
             });
+    });
+
+    it('should throw custom errors messages when update note with invalid data', function(done) {
+        Note.update({
+            id: noteId
+        }, {
+            author: faker.name.findName()
+        }, function(error, note) {
+            done(error, note);
+        });
     });
 
 });
