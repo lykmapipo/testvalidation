@@ -21,6 +21,8 @@ before(function(done) {
             },
             hooks: {
                 sockets: false,
+                views: false,
+                http: false,
                 pubsub: false,
                 grunt: false //we dont need grunt in test
             }
@@ -39,7 +41,7 @@ before(function(done) {
 after(function(done) {
     Note
         .destroy()
-        .then(function(result) {
+        .then(function( /*result*/ ) {
             sails.lower(done);
         })
         .catch(function(error) {

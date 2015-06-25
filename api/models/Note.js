@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * Note model
  * @type {Object}

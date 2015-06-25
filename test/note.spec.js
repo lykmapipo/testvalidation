@@ -1,13 +1,15 @@
 'use strict';
+
+//dependencies
 var expect = require('chai').expect;
-var faker = require('faker');
+// var faker = require('faker');
 
 describe('Note', function() {
 
     it('should throw custom errors messages if not valid', function(done) {
 
         Note
-            .create({}, function(error, note) {
+            .create({}, function(error /*, note*/ ) {
 
                 //uncomment the console.log to see full custom messages
                 //on your console

@@ -2,19 +2,11 @@
     "name": "testvalidation",
     "private": true,
     "version": "0.0.0",
-    "description": "a Sails application",
+    "description": "A sample sails application for sails-hook-validation",
     "keywords": [],
-    "dependencies": {
-        "ejs": "~0.8.4",
-        "rc": "~0.5.0",
-        "sails": "^0.11.0-rc10",
-        "sails-disk": "~0.10.0",
-        "sails-hook-validation": "^0.2.0"
-    },
     "scripts": {
         "start": "node app.js",
-        "debug": "node debug app.js",
-        "test": "./node_modules/.bin/mocha --timeout 10000"
+        "test": "grunt test"
     },
     "main": "app.js",
     "repository": {
@@ -24,8 +16,16 @@
     "author": "jerry",
     "license": "",
     "devDependencies": {
-        "chai": "^2.1.2",
-        "faker": "^2.1.2",
-        "mocha": "^2.2.1"
+        "chai": "^3.0.0",
+        "faker": "^2.1.5",
+        "grunt": "^0.4.5",
+        "grunt-contrib-jshint": "^0.11.2",
+        "grunt-mocha-test": "^0.12.7",
+        "jshint-stylish": "^2.0.1",
+        "mocha": "^2.2.5",
+        "rc": "^0.5.5",
+        "sails": "^0.11.0",
+        "sails-disk": "^0.10.8",
+        "sails-hook-validation": "^0.2.1"
     }
 }
