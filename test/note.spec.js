@@ -86,4 +86,20 @@ describe('Note', function() {
             });
     });
 
+
+    it('should not throw custom errors messages when update note with no data', function(done) {
+
+        Note
+            .update({
+                id: noteId
+            }, {}, function(error, note) {
+
+                //no custom errors
+                expect(error).to.not.exist;
+                expect(note).to.exist;
+
+                done(null, note);
+            });
+    });
+
 });
