@@ -61,13 +61,29 @@ describe('Note', function() {
     });
 
     it('should throw custom errors messages when update note with invalid data', function(done) {
-        Note.update({
-            id: noteId
-        }, {
-            author: faker.name.findName()
-        }, function(error, note) {
-            done(error, note);
-        });
+
+        Note
+            .update({
+                id: noteId
+            }, {
+                author: null
+            }, function(error, note) {
+
+                //uncomment the console.log to see full custom messages
+                //on your console
+                // console.log(error.Errors);
+
+                //author custom errors
+                expect(error.Errors.author).to.exist;
+
+                expect(error.Errors.author[0].message)
+                    .to.equal(Note.validationMessages.author.string);
+
+                expect(error.Errors.author[1].message)
+                    .to.equal(Note.validationMessages.author.required);
+
+                done(null, note);
+            });
     });
 
 });
